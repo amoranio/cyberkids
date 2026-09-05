@@ -196,7 +196,7 @@ function die(world: World, why: string, soundOn: boolean) {
 }
 
 function tryHop(world: World, dir: Dir, soundOn: boolean, collectNeeded: number) {
-  if (world.hopLock > 0 || world.stun > 0.35 || world.won || world.dead) return
+  if (world.hopLock > 0 || world.won || world.dead) return
   let nr = world.row
   let nfx = world.fx
   if (dir === 'up') nr -= 1
@@ -358,11 +358,13 @@ export function CrossingArcade({
   const completeRef = useLatest(onComplete)
   const soundRef = useLatest(soundOn)
   const fieldRef = useRef<HTMLDivElement>(null)
+  const playingRef = useRef(false)
   const overlay = !started ? 'howto' : view.dead ? 'lose' : null
 
   const reset = useCallback(
     (play: boolean) => {
       done.current = false
+      playingRef.current = play
       worldRef.current = createWorld(cols, rows, hitLine, splashLine)
       setView(snap(worldRef.current))
       setStarted(play)
@@ -372,11 +374,13 @@ export function CrossingArcade({
 
   const hop = useCallback(
     (dir: Dir) => {
-      if (!started || view.dead || view.won) return
-      tryHop(worldRef.current, dir, soundRef.current, collectNeeded)
-      setView(snap(worldRef.current))
+      if (!playingRef.current) return
+      const w = worldRef.current
+      if (w.dead || w.won) return
+      tryHop(w, dir, soundRef.current, collectNeeded)
+      setView(snap(w))
     },
-    [started, view.dead, view.won, collectNeeded, soundRef],
+    [collectNeeded, soundRef],
   )
 
   useArcadeKeys({

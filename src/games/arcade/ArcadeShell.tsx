@@ -56,12 +56,10 @@ export function ArcadeShell({
 }: Props) {
   const hearts = Array.from({ length: maxLives }, (_, i) => (i < lives ? '♥' : '♡'))
 
-  const padDown = (dir: Dir) => (e: ReactPointerEvent<HTMLButtonElement>) => {
-    e.preventDefault()
+  const padDown = (dir: Dir) => (_e: ReactPointerEvent<HTMLButtonElement>) => {
     onDir(dir)
   }
-  const padUp = (dir: Dir) => (e: ReactPointerEvent<HTMLButtonElement>) => {
-    e.preventDefault()
+  const padUp = (dir: Dir) => (_e: ReactPointerEvent<HTMLButtonElement>) => {
     onDirUp?.(dir)
   }
 
@@ -119,6 +117,10 @@ export function ArcadeShell({
             onPointerDown={padDown('up')}
             onPointerUp={padUp('up')}
             onPointerLeave={padUp('up')}
+            onClick={(e) => {
+              e.preventDefault()
+              onDir('up')
+            }}
           >
             ▲
           </button>
@@ -129,6 +131,10 @@ export function ArcadeShell({
             onPointerDown={padDown('left')}
             onPointerUp={padUp('left')}
             onPointerLeave={padUp('left')}
+            onClick={(e) => {
+              e.preventDefault()
+              onDir('left')
+            }}
           >
             ◀
           </button>
@@ -139,6 +145,10 @@ export function ArcadeShell({
             onPointerDown={padDown('right')}
             onPointerUp={padUp('right')}
             onPointerLeave={padUp('right')}
+            onClick={(e) => {
+              e.preventDefault()
+              onDir('right')
+            }}
           >
             ▶
           </button>
@@ -149,6 +159,10 @@ export function ArcadeShell({
             onPointerDown={padDown('down')}
             onPointerUp={padUp('down')}
             onPointerLeave={padUp('down')}
+            onClick={(e) => {
+              e.preventDefault()
+              onDir('down')
+            }}
           >
             ▼
           </button>
