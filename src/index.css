@@ -1,31 +1,47 @@
 :root {
-  --teal-deep: #0d7377;
-  --teal: #2a9d8f;
-  --teal-soft: #7ec8c3;
-  --sand: #ffe8c8;
-  --sand-deep: #f0d5a8;
-  --amber: #e9c46a;
-  --coral: #e76f51;
-  --coral-soft: #f4a261;
-  --ink: #1a3a3a;
-  --ink-soft: #3d5a5a;
-  --foam: #fff9f0;
-  --sky: #b8e0d8;
-  --lookout: #264653;
+  --paper: #f3efe6;
+  --paper-deep: #e7e1d4;
+  --white: #fffcf6;
+  --ink: #141414;
+  --muted: #5c574e;
+  --line: #141414;
+  --line-w: 3px;
+
+  --yellow: #ffd400;
+  --teal: #00b39a;
+  --coral: #ff4d3a;
+  --blue: #2f6fed;
+  --pink: #ff5a8a;
+  --navy: #1e3a5f;
+
+  --ok: #128a5e;
+  --bad: #c62828;
 
   --font-display: 'Fredoka', 'Nunito', sans-serif;
   --font-body: 'Nunito', sans-serif;
 
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 
-  --shadow-soft: 0 8px 24px rgba(13, 115, 119, 0.18);
-  --shadow-pop: 0 12px 32px rgba(231, 111, 81, 0.25);
+  --shadow-soft: 0 8px 0 rgba(20, 20, 20, 0.08);
+  --shadow-pop: 0 6px 0 #141414;
 
   --tap-min: 48px;
   --space: clamp(1rem, 3vw, 2rem);
-  --max-w: 1100px;
+  --max-w: 1080px;
+
+  /* legacy aliases used by a few components */
+  --teal-deep: var(--ink);
+  --teal-soft: #7ad9c9;
+  --sand: var(--paper-deep);
+  --sand-deep: var(--paper-deep);
+  --amber: var(--yellow);
+  --coral-soft: #ff8a7a;
+  --ink-soft: var(--muted);
+  --foam: var(--white);
+  --sky: var(--paper);
+  --lookout: var(--navy);
 
   color-scheme: light;
 }
@@ -44,10 +60,10 @@ body {
   margin: 0;
   min-height: 100dvh;
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2.4vw, 1.2rem);
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   line-height: 1.5;
   color: var(--ink);
-  background: var(--teal-deep);
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -59,9 +75,10 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 650;
+  line-height: 1.12;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -84,7 +101,7 @@ svg {
 }
 
 :focus-visible {
-  outline: 3px solid var(--amber);
+  outline: 3px solid var(--yellow);
   outline-offset: 3px;
 }
 

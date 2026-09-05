@@ -4,17 +4,8 @@ import { Character } from '../components/characters/Character'
 import { ChoiceButton } from '../components/ChoiceButton'
 import { useProgress } from '../context/ProgressContext'
 import { MODULE_ORDER, getModule, isModuleUnlocked } from '../content/modules'
-import type { ModuleId } from '../content/types'
 import { sfx } from '../utils/sound'
 import './Hub.css'
-
-const positions: Record<ModuleId, { top: string; left: string }> = {
-  share: { top: '58%', left: '12%' },
-  passwords: { top: '28%', left: '32%' },
-  fakes: { top: '48%', left: '55%' },
-  kindness: { top: '22%', left: '72%' },
-  help: { top: '62%', left: '78%' },
-}
 
 export function HubPage() {
   const {
@@ -49,7 +40,7 @@ export function HubPage() {
               </ChoiceButton>
             ) : (
               <p className="hub__hello">
-                Hi, {nickname}! Tap an island zone to begin.
+                Hi, {nickname}! Pick a zone to begin.
               </p>
             )}
             <Link
@@ -63,21 +54,20 @@ export function HubPage() {
         </div>
         <motion.div
           className="hub__mascot"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
         >
           <Character id="shieldo" size="lg" />
         </motion.div>
       </section>
 
-      <section className="hub__map" aria-label="Cyber Isle map">
-        <h2 className="hub__map-title">Cyber Isle</h2>
+      <section className="hub__map" aria-label="Cyber Isle zones">
+        <h2 className="hub__map-title">Choose a zone</h2>
         <div className="hub__terrain" role="list">
           {MODULE_ORDER.map((id, index) => {
             const mod = getModule(id)
             const unlocked = isModuleUnlocked(id, completedQuizzes)
             const done = badges.includes(id)
-            const pos = positions[id]
             const lessonDone = completedLessons.includes(id)
             const gameDone = completedGames.includes(id)
             const quizDone = completedQuizzes.includes(id)
@@ -86,17 +76,15 @@ export function HubPage() {
               <motion.div
                 key={id}
                 className={`hub__zone ${unlocked ? '' : 'hub__zone--locked'} ${done ? 'hub__zone--done' : ''}`}
-                style={{ top: pos.top, left: pos.left }}
                 role="listitem"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.08 * index }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * index }}
               >
                 {unlocked ? (
                   <Link
                     to={`/learn/${id}`}
                     className="hub__zone-btn"
-                    style={{ borderColor: mod.color }}
                     onClick={() => sfx.click(soundOn)}
                   >
                     <Character id={mod.host} size="sm" />
@@ -113,11 +101,12 @@ export function HubPage() {
                     className="hub__zone-btn hub__zone-btn--locked"
                     aria-disabled="true"
                   >
+                    <Character id={mod.host} size="sm" animated={false} />
                     <span className="hub__lock" aria-hidden="true">
                       🔒
                     </span>
                     <span className="hub__zone-label">{mod.mapLabel}</span>
-                    <span className="hub__zone-title">Finish previous zone</span>
+                    <span className="hub__zone-title">Locked</span>
                   </div>
                 )}
               </motion.div>
@@ -128,7 +117,7 @@ export function HubPage() {
 
       {allComplete && (
         <p className="hub__complete">
-          You earned every badge! You are a Cyber Defender. 🛡️
+          You earned every badge! You are a Cyber Defender.
         </p>
       )}
 

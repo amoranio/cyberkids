@@ -1,16 +1,16 @@
 .demo {
   margin-top: 1rem;
   padding: 1rem;
-  background: rgba(255, 249, 240, 0.75);
+  background: var(--paper);
   border-radius: var(--radius-md);
-  border: 2px dashed rgba(42, 157, 143, 0.45);
+  border: var(--line-w) solid var(--line);
   display: grid;
   gap: 0.85rem;
 }
 
 .demo__prompt {
   font-weight: 800;
-  color: var(--teal-deep);
+  color: var(--ink);
   margin: 0;
 }
 
@@ -18,7 +18,7 @@
   font-family: var(--font-display);
   font-size: 1.4rem;
   text-align: center;
-  color: var(--coral);
+  color: var(--ink);
   margin: 0;
 }
 
@@ -50,18 +50,20 @@
   font-weight: 800;
   padding: 0.5rem;
   border-radius: var(--radius-sm);
+  border: var(--line-w) solid var(--line);
+  background: var(--white);
 }
 
 .demo__meter--weak {
-  background: rgba(231, 111, 81, 0.25);
+  background: #ffd6cf;
 }
 
 .demo__meter--okay {
-  background: rgba(233, 196, 106, 0.45);
+  background: var(--yellow);
 }
 
 .demo__meter--strong {
-  background: rgba(42, 157, 143, 0.35);
+  background: var(--teal);
 }
 
 .demo__nav {
@@ -74,13 +76,13 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: none;
-  background: rgba(13, 115, 119, 0.25);
+  border: 2px solid var(--line);
+  background: var(--white);
   padding: 0;
 }
 
 .demo__dot--on {
-  outline: 2px solid var(--teal-deep);
+  background: var(--yellow);
 }
 
 .demo__dot--done {
@@ -94,13 +96,13 @@
 }
 
 .light--green {
-  border-color: #2a9d8f !important;
+  border-color: var(--line) !important;
 }
 
 .light--yellow {
-  border-color: #e9c46a !important;
+  border-color: var(--line) !important;
 }
 
 .light--red {
-  border-color: #e76f51 !important;
+  border-color: var(--line) !important;
 }

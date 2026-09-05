@@ -74,7 +74,7 @@ export function SortGame({ onComplete }: Props) {
       </div>
       <div className="game__bins">
         {BINS.map((bin) => (
-          <ChoiceButton key={bin.id} variant="secondary" onClick={() => place(bin.id)}>
+          <ChoiceButton key={bin.id} variant="ghost" onClick={() => place(bin.id)}>
             {bin.label}
           </ChoiceButton>
         ))}

@@ -2,44 +2,46 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
+  overflow: visible;
 }
 
 .character__svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .character--sm {
-  width: 64px;
-  height: 64px;
+  width: 84px;
+  height: 84px;
 }
 
 .character--md {
-  width: 112px;
-  height: 112px;
+  width: 140px;
+  height: 140px;
 }
 
 .character--lg {
-  width: clamp(140px, 28vw, 200px);
-  height: clamp(140px, 28vw, 200px);
+  width: clamp(180px, 32vw, 260px);
+  height: clamp(180px, 32vw, 260px);
 }
 
-.character--bob {
-  animation: bob 2.8s ease-in-out infinite;
+.character--idle {
+  animation: idle 4s ease-in-out infinite;
 }
 
-@keyframes bob {
+@keyframes idle {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .character--bob {
+  .character--idle {
     animation: none;
   }
 }

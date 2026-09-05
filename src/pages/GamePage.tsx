@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { CelebrateOverlay } from '../components/CelebrateOverlay'
+import { Character } from '../components/characters/Character'
 import { useProgress } from '../context/ProgressContext'
 import { getModule, isModuleUnlocked } from '../content/modules'
 import type { ModuleId } from '../content/types'
@@ -52,6 +53,9 @@ export function GamePage() {
       <h1 className="play__title">{mod.shortTitle} Game</h1>
       <p className="play__subtitle">Practice time with your guide!</p>
       <div className="play__frame">
+        <div className="play__host">
+          <Character id={mod.host} size="md" />
+        </div>
         {mod.id === 'share' && <SortGame onComplete={onComplete} />}
         {mod.id === 'passwords' && <PasswordGame onComplete={onComplete} />}
         {mod.id === 'fakes' && <SpotFakeGame onComplete={onComplete} />}

@@ -1,20 +1,22 @@
 .choice {
   min-height: var(--tap-min);
   min-width: var(--tap-min);
-  padding: 0.85rem 1.25rem;
+  padding: 0.85rem 1.2rem;
   border-radius: var(--radius-md);
-  border: 3px solid transparent;
+  border: var(--line-w) solid var(--line);
   font-weight: 800;
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  font-size: clamp(1rem, 2.4vw, 1.1rem);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
   text-align: center;
   color: var(--ink);
-  background: var(--foam);
+  background: var(--white);
+  box-shadow: 0 3px 0 var(--line);
 }
 
 .choice:disabled {
-  opacity: 0.55;
+  opacity: 0.45;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .choice:not(:disabled):hover {
@@ -22,38 +24,36 @@
 }
 
 .choice:not(:disabled):active {
-  transform: translateY(1px);
+  transform: translateY(2px);
+  box-shadow: none;
 }
 
 .choice--primary {
-  background: linear-gradient(160deg, var(--coral-soft), var(--coral));
-  color: #fff;
-  box-shadow: var(--shadow-pop);
+  background: var(--yellow);
+  color: var(--ink);
 }
 
 .choice--secondary {
-  background: linear-gradient(160deg, var(--teal), var(--teal-deep));
-  color: #fff;
-  box-shadow: var(--shadow-soft);
+  background: var(--teal);
+  color: var(--ink);
 }
 
 .choice--ghost {
-  background: rgba(255, 249, 240, 0.92);
-  color: var(--teal-deep);
-  border-color: rgba(42, 157, 143, 0.45);
+  background: var(--white);
+  color: var(--ink);
 }
 
 .choice--success {
-  background: linear-gradient(160deg, var(--teal-soft), var(--teal));
-  color: #fff;
+  background: var(--teal);
+  color: var(--ink);
 }
 
 .choice--danger {
-  background: linear-gradient(160deg, var(--coral-soft), var(--coral));
-  color: #fff;
+  background: var(--coral);
+  color: var(--white);
 }
 
 .choice--selected {
-  border-color: var(--amber);
-  box-shadow: 0 0 0 3px rgba(233, 196, 106, 0.55);
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
 }

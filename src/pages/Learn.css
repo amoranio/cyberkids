@@ -4,8 +4,8 @@
 .badges,
 .parents {
   display: grid;
-  gap: 1.1rem;
-  color: var(--foam);
+  gap: 1.15rem;
+  color: var(--ink);
 }
 
 .learn__top,
@@ -23,15 +23,16 @@
 .play__back,
 .quiz__back,
 .badges__back {
-  color: var(--sand);
+  color: var(--ink);
   font-weight: 800;
   text-decoration: none;
+  border-bottom: var(--line-w) solid var(--line);
 }
 
 .learn__progress,
 .quiz__progress {
   font-weight: 800;
-  color: var(--sand);
+  color: var(--muted);
 }
 
 .learn__title,
@@ -40,13 +41,13 @@
 .badges__title,
 .parents__title {
   font-size: clamp(1.7rem, 5vw, 2.4rem);
-  color: var(--foam);
+  color: var(--ink);
 }
 
 .learn__subtitle,
 .play__subtitle,
 .parents__lead {
-  color: rgba(255, 249, 240, 0.9);
+  color: var(--muted);
   font-weight: 700;
 }
 
@@ -63,12 +64,22 @@
 .quiz__frame,
 .badges__card,
 .parents__card {
-  background: rgba(255, 249, 240, 0.94);
+  background: var(--white);
   color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 1.25rem;
-  box-shadow: var(--shadow-soft);
-  border: 3px solid rgba(42, 157, 143, 0.35);
+  border: var(--line-w) solid var(--line);
+  box-shadow: 0 4px 0 var(--line);
+}
+
+.play__frame {
+  display: grid;
+  gap: 1rem;
+}
+
+.play__host {
+  display: grid;
+  place-items: center;
 }
 
 .quiz__choices {
@@ -82,14 +93,16 @@
   font-weight: 800;
   padding: 0.75rem;
   border-radius: var(--radius-sm);
+  border: var(--line-w) solid var(--line);
+  background: var(--paper);
 }
 
 .quiz__feedback--ok {
-  background: rgba(42, 157, 143, 0.25);
+  background: var(--teal);
 }
 
 .quiz__feedback--bad {
-  background: rgba(231, 111, 81, 0.22);
+  background: #ffd6cf;
 }
 
 .badges__grid {
@@ -102,19 +115,18 @@
   text-align: center;
   padding: 1rem 0.75rem;
   border-radius: var(--radius-md);
-  background: rgba(255, 249, 240, 0.9);
+  background: var(--white);
   color: var(--ink);
-  border: 3px solid transparent;
+  border: var(--line-w) solid var(--line);
 }
 
 .badges__item--earned {
-  border-color: var(--amber);
-  box-shadow: var(--shadow-soft);
+  background: var(--yellow);
 }
 
 .badges__item--locked {
-  opacity: 0.55;
-  filter: grayscale(0.4);
+  background: var(--paper-deep);
+  opacity: 0.85;
 }
 
 .badges__emoji {
@@ -132,7 +144,7 @@
 }
 
 .badges__cert h2 {
-  color: var(--teal-deep);
+  color: var(--ink);
   margin-bottom: 0.35rem;
 }
 

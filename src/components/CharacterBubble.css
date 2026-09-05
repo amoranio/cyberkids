@@ -12,6 +12,11 @@
     text-align: center;
   }
 
+  .bubble .character--lg {
+    width: 120px;
+    height: 120px;
+  }
+
   .bubble__panel {
     text-align: left;
   }
@@ -22,11 +27,11 @@
 }
 
 .bubble__panel {
-  background: rgba(255, 249, 240, 0.95);
+  background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 1.1rem 1.25rem;
-  box-shadow: var(--shadow-soft);
-  border: 3px solid rgba(42, 157, 143, 0.35);
+  padding: 1.15rem 1.3rem;
+  border: var(--line-w) solid var(--line);
+  box-shadow: 0 4px 0 var(--line);
 }
 
 .bubble__who {
@@ -41,13 +46,15 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--teal-deep);
+  color: var(--ink);
 }
 
 .bubble__role {
   font-size: 0.85rem;
-  color: var(--ink-soft);
-  font-weight: 700;
+  color: var(--muted);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .bubble__title {
@@ -57,18 +64,15 @@
 }
 
 .bubble__text {
-  color: var(--ink-soft);
+  color: var(--ink);
 }
 
 .bubble__tip {
-  margin: 0.75rem 0 0;
-  padding: 0.65rem 0.8rem;
-  background: linear-gradient(
-    135deg,
-    rgba(233, 196, 106, 0.45),
-    rgba(244, 162, 97, 0.35)
-  );
+  margin: 0.8rem 0 0;
+  padding: 0.7rem 0.85rem;
+  background: var(--paper);
+  border: var(--line-w) solid var(--line);
   border-radius: var(--radius-sm);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.95rem;
 }

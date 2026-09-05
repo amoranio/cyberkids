@@ -14,7 +14,7 @@ export function CharacterBubble({ character, title, children, tip }: Props) {
   const meta = getCharacterMeta(character)
   return (
     <div className="bubble">
-      <Character id={character} size="md" />
+      <Character id={character} size="lg" />
       <div className="bubble__panel">
         <p className="bubble__who">
           <span className="bubble__name">{meta.name}</span>
