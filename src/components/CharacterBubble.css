@@ -1,0 +1,74 @@
+.bubble {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 520px) {
+  .bubble {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .bubble__panel {
+    text-align: left;
+  }
+
+  .bubble__who {
+    justify-content: center;
+  }
+}
+
+.bubble__panel {
+  background: rgba(255, 249, 240, 0.95);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+  border: 3px solid rgba(42, 157, 143, 0.35);
+}
+
+.bubble__who {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin: 0 0 0.4rem;
+}
+
+.bubble__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--teal-deep);
+}
+
+.bubble__role {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.bubble__title {
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+}
+
+.bubble__text {
+  color: var(--ink-soft);
+}
+
+.bubble__tip {
+  margin: 0.75rem 0 0;
+  padding: 0.65rem 0.8rem;
+  background: linear-gradient(
+    135deg,
+    rgba(233, 196, 106, 0.45),
+    rgba(244, 162, 97, 0.35)
+  );
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+}

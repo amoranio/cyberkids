@@ -1,0 +1,109 @@
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shell--hub {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(233, 196, 106, 0.35), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 85% 15%, rgba(244, 162, 97, 0.3), transparent 50%),
+    linear-gradient(180deg, #0d7377 0%, #2a9d8f 42%, #7ec8c3 70%, #ffe8c8 100%);
+}
+
+.shell--page {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(233, 196, 106, 0.25), transparent 40%),
+    linear-gradient(165deg, #0d7377 0%, #1a8a85 45%, #2a9d8f 100%);
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem var(--space);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(13, 115, 119, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 249, 240, 0.15);
+}
+
+.topbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  color: var(--foam);
+}
+
+.topbar__mark {
+  font-size: 1.4rem;
+}
+
+.topbar__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 1.7rem);
+  letter-spacing: 0.02em;
+}
+
+.topbar__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.topbar__nick {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--sand);
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-sm);
+}
+
+.topbar__sound {
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 249, 240, 0.15);
+  font-size: 1.25rem;
+}
+
+.topbar__link {
+  min-height: var(--tap-min);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--amber);
+}
+
+.topbar__link--soft {
+  background: rgba(255, 249, 240, 0.9);
+  color: var(--teal-deep);
+}
+
+.shell__main {
+  flex: 1;
+  width: min(100%, var(--max-w));
+  margin: 0 auto;
+  padding: var(--space);
+}
+
+.shell__foot {
+  text-align: center;
+  padding: 0.75rem var(--space) 1.25rem;
+  color: rgba(255, 249, 240, 0.75);
+  font-size: 0.9rem;
+  font-weight: 600;
+}

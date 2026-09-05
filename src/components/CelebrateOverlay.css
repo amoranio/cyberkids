@@ -1,0 +1,61 @@
+.celebrate {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(13, 115, 119, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.celebrate__card {
+  width: min(100%, 420px);
+  background: var(--foam);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-pop);
+  border: 4px solid var(--amber);
+}
+
+.celebrate__emoji {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: pop 0.6s ease;
+}
+
+.celebrate__card h2 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+  color: var(--teal-deep);
+}
+
+.celebrate__card p {
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+
+.celebrate__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.4);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .celebrate__emoji {
+    animation: none;
+  }
+}

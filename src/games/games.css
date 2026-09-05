@@ -1,0 +1,87 @@
+.game {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.game__status {
+  font-weight: 800;
+  color: var(--teal-deep);
+  margin: 0;
+}
+
+.game__row,
+.game__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.game__stack {
+  flex-direction: column;
+}
+
+.game__item {
+  min-height: var(--tap-min);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 3px solid rgba(42, 157, 143, 0.35);
+  background: rgba(255, 249, 240, 0.95);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.game__bins {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .game__bins {
+    grid-template-columns: 1fr;
+  }
+}
+
+.game__bin--active {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(233, 196, 106, 0.45);
+}
+
+.game__msg {
+  min-height: 1.4em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.game__msg--ok {
+  color: #1b6b5c;
+}
+
+.game__msg--bad {
+  color: #a33b24;
+}
+
+.game__card {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 249, 240, 0.95);
+  border: 3px solid rgba(42, 157, 143, 0.3);
+  font-weight: 700;
+}
+
+.game__fake {
+  border-color: var(--coral);
+}
+
+.game__meter {
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(13, 115, 119, 0.15);
+  overflow: hidden;
+}
+
+.game__meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--coral), var(--amber), var(--teal));
+  transition: width 0.2s ease;
+}
