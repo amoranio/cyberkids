@@ -19,7 +19,7 @@ export function getCharacterMeta(id: CharacterId) {
 
 const ink = {
   stroke: '#111111',
-  strokeWidth: 8,
+  strokeWidth: 6,
   strokeLinejoin: 'round' as const,
   strokeLinecap: 'round' as const,
 }
@@ -39,7 +39,7 @@ export function Character({
 }: Props) {
   return (
     <div
-      className={`character character--${size} ${animated ? 'character--bob' : ''} ${className}`}
+      className={`character character--${size} ${animated ? 'character--idle' : ''} ${className}`}
       aria-hidden="true"
     >
       {id === 'shieldo' && <ShieldoSvg />}
@@ -54,128 +54,131 @@ export function Character({
 
 function ShieldoSvg() {
   return (
-    <svg viewBox="0 0 160 160" className="character__svg">
+    <svg viewBox="0 0 180 180" className="character__svg">
+      <path d="M56 150 H124 L132 162 H48 Z" fill="#1E3A5F" {...ink} />
       <path
-        d="M80 18 L128 38 V78 C128 118 80 142 80 142 C80 142 32 118 32 78 V38 Z"
+        d="M90 16 L146 38 V88 C146 128 90 160 90 160 C90 160 34 128 34 88 V38 Z"
         fill="#FFD400"
         {...ink}
       />
       <path
-        d="M80 44 L108 56 V78 C108 102 80 120 80 120 C80 120 52 102 52 78 V56 Z"
+        d="M90 44 L124 58 V90 C124 116 90 138 90 138 C90 138 56 116 56 90 V58 Z"
         fill="#00B39A"
         {...ink}
       />
-      <circle cx="66" cy="74" r="12" fill="#FFFcf6" {...ink} />
-      <circle cx="94" cy="74" r="12" fill="#FFFcf6" {...ink} />
-      <circle cx="66" cy="75" r="5.5" fill="#111111" />
-      <circle cx="94" cy="75" r="5.5" fill="#111111" />
-      <path d="M68 96 Q80 108 92 96" fill="none" {...ink} />
-      <circle cx="38" cy="50" r="11" fill="#FF4D3A" {...ink} />
-      <circle cx="122" cy="50" r="11" fill="#FF4D3A" {...ink} />
+      <rect x="64" y="70" width="52" height="16" rx="3" fill="#111111" {...ink} strokeWidth={5} />
+      <rect x="72" y="74" width="12" height="8" fill="#FFD400" />
+      <rect x="96" y="74" width="12" height="8" fill="#FFD400" />
+      <path d="M78 100 H102" fill="none" {...ink} strokeWidth={5} />
+      <path d="M50 32 L38 14" fill="none" {...ink} />
+      <path d="M130 32 L142 14" fill="none" {...ink} />
+      <rect x="32" y="8" width="12" height="12" fill="#00B39A" {...ink} strokeWidth={5} />
+      <rect x="136" y="8" width="12" height="12" fill="#00B39A" {...ink} strokeWidth={5} />
     </svg>
   )
 }
 
 function KeyoraSvg() {
   return (
-    <svg viewBox="0 0 160 160" className="character__svg">
-      <ellipse cx="42" cy="54" rx="18" ry="26" fill="#FFFcf6" {...ink} />
-      <ellipse cx="118" cy="54" rx="18" ry="26" fill="#FFFcf6" {...ink} />
-      <circle cx="80" cy="58" r="34" fill="#FFD400" {...ink} />
-      <circle cx="80" cy="58" r="14" fill="#FFFcf6" {...ink} />
-      <circle cx="80" cy="58" r="6" fill="#111111" />
-      <rect x="72" y="88" width="16" height="40" rx="8" fill="#FFD400" {...ink} />
-      <rect x="72" y="110" width="30" height="12" rx="6" fill="#FFD400" {...ink} />
-      <rect x="72" y="124" width="22" height="12" rx="6" fill="#FFD400" {...ink} />
-      <circle cx="68" cy="50" r="6" fill="#111111" />
-      <circle cx="92" cy="50" r="6" fill="#111111" />
-      <path d="M28 32 Q46 10 62 30" fill="none" {...ink} />
-      <path d="M132 32 Q114 10 98 30" fill="none" {...ink} />
-      <circle cx="26" cy="30" r="8" fill="#FF4D3A" {...ink} />
-      <circle cx="134" cy="30" r="8" fill="#FF4D3A" {...ink} />
+    <svg viewBox="0 0 180 180" className="character__svg">
+      <path d="M40 70 Q22 36 54 32 Q70 52 62 78 Z" fill="#FFFcf6" {...ink} />
+      <path d="M140 70 Q158 36 126 32 Q110 52 118 78 Z" fill="#FFFcf6" {...ink} />
+      <ellipse cx="90" cy="74" rx="40" ry="36" fill="#FFD400" {...ink} />
+      <path d="M68 60 L84 66 L68 70" fill="none" {...ink} strokeWidth={5} />
+      <path d="M112 60 L96 66 L112 70" fill="none" {...ink} strokeWidth={5} />
+      <rect x="66" y="62" width="16" height="10" rx="2" fill="#111111" />
+      <rect x="98" y="62" width="16" height="10" rx="2" fill="#111111" />
+      <path d="M80 84 H102" fill="none" {...ink} strokeWidth={5} />
+      <circle cx="90" cy="102" r="10" fill="#111111" {...ink} strokeWidth={5} />
+      <circle cx="90" cy="102" r="4" fill="#FFD400" />
+      <rect x="82" y="110" width="16" height="38" rx="4" fill="#FFD400" {...ink} />
+      <path d="M98 132 H128 V144 H98 Z" fill="#FFD400" {...ink} />
+      <path d="M98 148 H118 V160 H98 Z" fill="#FFD400" {...ink} />
     </svg>
   )
 }
 
 function PrivySvg() {
   return (
-    <svg viewBox="0 0 160 160" className="character__svg">
-      <ellipse cx="80" cy="104" rx="54" ry="34" fill="#00B39A" {...ink} />
-      <ellipse cx="80" cy="104" rx="30" ry="16" fill="#FFD400" {...ink} />
-      <circle cx="80" cy="58" r="30" fill="#00B39A" {...ink} />
-      <rect x="62" y="44" width="36" height="28" rx="8" fill="#FFD400" {...ink} />
-      <circle cx="80" cy="52" r="8" fill="#FFFcf6" {...ink} />
-      <rect x="76" y="58" width="8" height="10" rx="2" fill="#111111" />
-      <circle cx="68" cy="56" r="5.5" fill="#111111" />
-      <circle cx="92" cy="56" r="5.5" fill="#111111" />
-      <ellipse cx="32" cy="104" rx="14" ry="10" fill="#1E3A5F" {...ink} />
-      <ellipse cx="128" cy="104" rx="14" ry="10" fill="#1E3A5F" {...ink} />
-      <path d="M68 76 Q80 88 92 76" fill="none" {...ink} />
+    <svg viewBox="0 0 180 180" className="character__svg">
+      <ellipse cx="50" cy="140" rx="16" ry="9" fill="#1E3A5F" {...ink} />
+      <ellipse cx="130" cy="140" rx="16" ry="9" fill="#1E3A5F" {...ink} />
+      <path
+        d="M34 108 Q38 62 90 54 Q142 62 146 108 Q142 146 90 154 Q38 146 34 108 Z"
+        fill="#00B39A"
+        {...ink}
+      />
+      <path d="M62 86 L90 68 L118 86 L104 122 H76 Z" fill="#1E3A5F" {...ink} strokeWidth={5} />
+      <rect x="78" y="90" width="24" height="22" rx="3" fill="#FFD400" {...ink} strokeWidth={5} />
+      <circle cx="90" cy="98" r="5" fill="#111111" />
+      <rect x="88" y="102" width="4" height="7" fill="#111111" />
+      <path
+        d="M70 54 Q78 28 102 32 Q118 36 116 58 Q108 70 88 66 Q70 62 70 54 Z"
+        fill="#00B39A"
+        {...ink}
+      />
+      <path d="M86 42 L104 44" fill="none" {...ink} strokeWidth={5} />
+      <ellipse cx="98" cy="48" rx="7" ry="5" fill="#FFFcf6" {...ink} strokeWidth={4.5} />
+      <ellipse cx="100" cy="48" rx="2.8" ry="3.2" fill="#111111" />
+      <path d="M108 56 Q114 58 110 62" fill="none" {...ink} strokeWidth={4.5} />
     </svg>
   )
 }
 
 function SpotterSvg() {
   return (
-    <svg viewBox="0 0 160 160" className="character__svg">
-      <ellipse cx="80" cy="88" rx="46" ry="40" fill="#FF4D3A" {...ink} />
-      <circle cx="62" cy="82" r="20" fill="#FFFcf6" {...ink} />
-      <circle cx="98" cy="82" r="20" fill="#FFFcf6" {...ink} />
-      <circle cx="62" cy="84" r="9" fill="#111111" />
-      <circle cx="98" cy="84" r="9" fill="#111111" />
-      <circle cx="58" cy="80" r="3.5" fill="#FFFcf6" />
-      <circle cx="94" cy="80" r="3.5" fill="#FFFcf6" />
-      <path d="M72 110 L80 124 L88 110" fill="#FFD400" {...ink} />
-      <path d="M38 56 Q54 24 72 48" fill="none" {...ink} />
-      <path d="M122 56 Q106 24 88 48" fill="none" {...ink} />
-      <circle cx="122" cy="118" r="20" fill="#FFD400" {...ink} />
-      <circle cx="122" cy="118" r="10" fill="none" stroke="#111111" strokeWidth={8} />
-      <line
-        x1="136"
-        y1="132"
-        x2="150"
-        y2="146"
-        stroke="#111111"
-        strokeWidth={10}
-        strokeLinecap="round"
+    <svg viewBox="0 0 180 180" className="character__svg">
+      <path d="M54 22 L68 54 L90 40 Z" fill="#1E3A5F" {...ink} />
+      <path d="M126 22 L112 54 L90 40 Z" fill="#1E3A5F" {...ink} />
+      <path
+        d="M44 78 Q48 38 90 34 Q132 38 136 78 Q142 122 90 152 Q38 122 44 78 Z"
+        fill="#FF4D3A"
+        {...ink}
       />
+      <rect x="58" y="68" width="28" height="18" rx="3" fill="#FFFcf6" {...ink} strokeWidth={5} />
+      <rect x="94" y="68" width="28" height="18" rx="3" fill="#FFFcf6" {...ink} strokeWidth={5} />
+      <rect x="66" y="72" width="12" height="10" fill="#111111" />
+      <rect x="102" y="72" width="12" height="10" fill="#111111" />
+      <path d="M86 90 L90 102 L94 90" fill="#FFD400" {...ink} strokeWidth={5} />
+      <circle cx="140" cy="130" r="22" fill="#FFD400" {...ink} />
+      <circle cx="140" cy="130" r="9" fill="none" stroke="#111111" strokeWidth={6} />
+      <path d="M156 146 L170 160" fill="none" {...ink} strokeWidth={8} />
     </svg>
   )
 }
 
 function SparkSvg() {
   return (
-    <svg viewBox="0 0 160 160" className="character__svg">
-      <ellipse cx="80" cy="90" rx="52" ry="36" fill="#FFFcf6" {...ink} />
+    <svg viewBox="0 0 180 180" className="character__svg">
       <path
-        d="M80 20 L90 58 L130 58 L98 82 L110 120 L80 96 L50 120 L62 82 L30 58 L70 58 Z"
+        d="M90 18 L102 70 L156 58 L114 96 L168 128 L102 114 L90 168 L78 114 L12 128 L66 96 L24 58 L78 70 Z"
         fill="#FF5A8A"
         {...ink}
       />
-      <circle cx="66" cy="86" r="6.5" fill="#111111" />
-      <circle cx="94" cy="86" r="6.5" fill="#111111" />
-      <path d="M66 104 Q80 116 94 104" fill="none" {...ink} />
-      <circle cx="28" cy="50" r="10" fill="#FFD400" {...ink} />
-      <circle cx="132" cy="54" r="9" fill="#FFD400" {...ink} />
+      <path d="M72 78 H86" fill="none" {...ink} strokeWidth={5} />
+      <path d="M108 78 H94" fill="none" {...ink} strokeWidth={5} />
+      <circle cx="80" cy="86" r="4.5" fill="#111111" />
+      <circle cx="100" cy="86" r="4.5" fill="#111111" />
+      <path d="M80 104 H102" fill="none" {...ink} strokeWidth={5} />
     </svg>
   )
 }
 
 function BeaconSvg() {
   return (
-    <svg viewBox="0 0 160 160" className="character__svg">
-      <ellipse cx="42" cy="90" rx="20" ry="32" fill="#2F6FED" {...ink} />
-      <ellipse cx="118" cy="90" rx="20" ry="32" fill="#2F6FED" {...ink} />
-      <ellipse cx="80" cy="100" rx="34" ry="30" fill="#1E3A5F" {...ink} />
-      <circle cx="80" cy="58" r="28" fill="#2F6FED" {...ink} />
-      <circle cx="70" cy="56" r="6.5" fill="#111111" />
-      <circle cx="90" cy="56" r="6.5" fill="#111111" />
-      <path d="M68 74 Q80 84 92 74" fill="none" {...ink} />
-      <circle cx="80" cy="106" r="18" fill="#FFD400" {...ink} />
-      <polygon points="80,92 88,106 80,120 72,106" fill="#FF4D3A" {...ink} />
-      <circle cx="80" cy="106" r="5" fill="#111111" />
-      <path d="M50 32 Q36 14 22 30" fill="none" {...ink} />
-      <path d="M110 32 Q124 14 138 30" fill="none" {...ink} />
+    <svg viewBox="0 0 180 180" className="character__svg">
+      <path d="M22 86 Q16 44 58 56 Q68 92 50 120 Q20 116 22 86 Z" fill="#2F6FED" {...ink} />
+      <path d="M158 86 Q164 44 122 56 Q112 92 130 120 Q160 116 158 86 Z" fill="#2F6FED" {...ink} />
+      <ellipse cx="90" cy="112" rx="36" ry="34" fill="#1E3A5F" {...ink} />
+      <ellipse cx="90" cy="66" rx="32" ry="28" fill="#2F6FED" {...ink} />
+      <circle cx="78" cy="64" r="6" fill="#111111" />
+      <circle cx="102" cy="64" r="6" fill="#111111" />
+      <path d="M78 80 H104" fill="none" {...ink} strokeWidth={5} />
+      <circle cx="90" cy="120" r="18" fill="#FFD400" {...ink} strokeWidth={5} />
+      <path d="M90 104 L95 120 L90 136 L85 120 Z" fill="#FF4D3A" {...ink} strokeWidth={4} />
+      <circle cx="90" cy="120" r="4" fill="#111111" />
+      <path d="M64 38 L48 14" fill="none" {...ink} />
+      <path d="M116 38 L132 14" fill="none" {...ink} />
     </svg>
   )
 }

@@ -26,22 +26,22 @@
   height: clamp(180px, 32vw, 260px);
 }
 
-.character--bob {
-  animation: bob 3s ease-in-out infinite;
+.character--idle {
+  animation: idle 4s ease-in-out infinite;
 }
 
-@keyframes bob {
+@keyframes idle {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .character--bob {
+  .character--idle {
     animation: none;
   }
 }
