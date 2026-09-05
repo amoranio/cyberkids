@@ -7,10 +7,10 @@ import './LessonDemos.css'
 type SortBucket = 'private' | 'share' | 'ask'
 
 const sortItems: { id: string; label: string; bucket: SortBucket }[] = [
-  { id: '1', label: 'Home address', bucket: 'private' },
-  { id: '2', label: 'Favorite animal', bucket: 'share' },
-  { id: '3', label: 'School name', bucket: 'ask' },
-  { id: '4', label: 'Password', bucket: 'private' },
+  { id: '1', label: 'Photo of your front door', bucket: 'private' },
+  { id: '2', label: '“I like pancakes”', bucket: 'share' },
+  { id: '3', label: 'Class photo with the school logo', bucket: 'ask' },
+  { id: '4', label: 'Your last name', bucket: 'private' },
 ]
 
 export function DemoSort() {
@@ -29,7 +29,7 @@ export function DemoSort() {
 
   return (
     <div className="demo">
-      <p className="demo__prompt">Where does this go?</p>
+      <p className="demo__prompt">Where does this treasure go?</p>
       <p className="demo__item">{item.label}</p>
       <div className="demo__row">
         {(
@@ -72,7 +72,7 @@ export function DemoSort() {
   )
 }
 
-const tiles = ['Blue', 'Banana', 'Dances', 'Sun', '42', '!']
+const tiles = ['Pizza', 'Moon', 'Rocket', 'Seven', 'Wave', '!']
 
 export function DemoPassword() {
   const { soundOn } = useProgress()
@@ -83,7 +83,7 @@ export function DemoPassword() {
 
   return (
     <div className="demo">
-      <p className="demo__prompt">Tap tiles to build a silly strong key:</p>
+      <p className="demo__prompt">Tap tiles to stack a long silly key:</p>
       <div className="demo__tiles">
         {tiles.map((t) => (
           <ChoiceButton
@@ -106,7 +106,7 @@ export function DemoPassword() {
         {strength === 'strong'
           ? 'Strong!'
           : strength === 'okay'
-            ? 'Getting better'
+            ? 'Getting longer'
             : 'Too short'}
       </div>
     </div>
@@ -120,7 +120,9 @@ export function DemoTraffic() {
 
   return (
     <div className="demo">
-      <p className="demo__prompt">“FREE bike if you click this weird link!!!”</p>
+      <p className="demo__prompt">
+        “Your account closes in 10 seconds! Tap this odd link to keep it!!!”
+      </p>
       <div className="demo__lights">
         {(
           [
@@ -151,8 +153,8 @@ export function DemoTraffic() {
       {answer && (
         <p className="demo__feedback">
           {answer === correct
-            ? 'Yes! Too-good prizes are usually tricks.'
-            : 'Think again — free prize pop-ups are red flags.'}
+            ? 'Yes! Panic timers + odd links are red. Freeze.'
+            : 'Think again — a countdown plus a messy link is a trap.'}
         </p>
       )}
     </div>
@@ -163,14 +165,16 @@ export function DemoKind() {
   const { soundOn } = useProgress()
   const [pick, setPick] = useState<number | null>(null)
   const options = [
-    { text: 'Write something meaner back', ok: false },
-    { text: 'Be kind, stop, and tell a grown-up', ok: true },
-    { text: 'Share your password to prove you are cool', ok: false },
+    { text: 'Jump in the group roast so you look cool', ok: false },
+    { text: 'Send a private “You okay? Want to play a different game?”', ok: true },
+    { text: 'Repost their drawing so more people laugh', ok: false },
   ]
 
   return (
     <div className="demo">
-      <p className="demo__prompt">Someone was unkind in chat. What do you do?</p>
+      <p className="demo__prompt">
+        A friend missed a shot and the group chat started roasting them. You…
+      </p>
       <div className="demo__stack">
         {options.map((o, i) => (
           <ChoiceButton
@@ -192,9 +196,18 @@ export function DemoKind() {
 export function DemoHelp() {
   const { soundOn } = useProgress()
   const scenarios = [
-    { text: 'A stranger asks where you live', tell: true },
-    { text: 'Choosing a game avatar color', tell: false },
-    { text: 'A pop-up asks for your password', tell: true },
+    {
+      text: 'A game buddy wants a video call after bedtime',
+      tell: true,
+    },
+    {
+      text: 'Picking a hat for your avatar',
+      tell: false,
+    },
+    {
+      text: 'Ads keep popping after you tapped a sparkly star',
+      tell: true,
+    },
   ]
   const [i, setI] = useState(0)
   const [msg, setMsg] = useState('')
@@ -211,8 +224,8 @@ export function DemoHelp() {
             sfx[ok ? 'success' : 'wrong'](soundOn)
             setMsg(
               ok
-                ? 'Yes — tell a trusted adult!'
-                : 'This one is usually fine on your own.',
+                ? 'Yes — that needs a trusted adult.'
+                : 'Hats are a small choice you can make.',
             )
           }}
         >
@@ -225,8 +238,8 @@ export function DemoHelp() {
             sfx[ok ? 'success' : 'wrong'](soundOn)
             setMsg(
               ok
-                ? 'Right — this is a small choice.'
-                : 'This needs a grown-up’s help.',
+                ? 'Right — this one is a small choice.'
+                : 'This one needs a grown-up’s help.',
             )
           }}
         >

@@ -11,6 +11,11 @@
   overflow: visible;
 }
 
+.character--xs {
+  width: 42px;
+  height: 42px;
+}
+
 .character--sm {
   width: 84px;
   height: 84px;

@@ -77,6 +77,10 @@
   gap: 1rem;
 }
 
+.play__frame--arcade {
+  padding: 0.9rem;
+}
+
 .play__host {
   display: grid;
   place-items: center;

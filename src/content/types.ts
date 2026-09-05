@@ -46,6 +46,8 @@ export type ModuleContent = {
   badgeEmoji: string
   mapLabel: string
   color: string
+  gameName: string
+  gameBlurb: string
   lesson: LessonPanel[]
   quiz: QuizQuestion[]
   unlockAfter?: ModuleId

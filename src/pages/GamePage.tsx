@@ -1,15 +1,14 @@
 import { useMemo, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { CelebrateOverlay } from '../components/CelebrateOverlay'
-import { Character } from '../components/characters/Character'
 import { useProgress } from '../context/ProgressContext'
 import { getModule, isModuleUnlocked } from '../content/modules'
 import type { ModuleId } from '../content/types'
-import { SortGame } from '../games/SortGame'
-import { PasswordGame } from '../games/PasswordGame'
-import { SpotFakeGame } from '../games/SpotFakeGame'
-import { KindnessGame } from '../games/KindnessGame'
-import { HelpGame } from '../games/HelpGame'
+import { TreasureCrossingGame } from '../games/TreasureCrossingGame'
+import { KeyBlasterGame } from '../games/KeyBlasterGame'
+import { TrickInvadersGame } from '../games/TrickInvadersGame'
+import { KindnessInvadersGame } from '../games/KindnessInvadersGame'
+import { BeaconRunGame } from '../games/BeaconRunGame'
 import { sfx } from '../utils/sound'
 import './Learn.css'
 
@@ -50,17 +49,14 @@ export function GamePage() {
           ← Lesson
         </Link>
       </div>
-      <h1 className="play__title">{mod.shortTitle} Game</h1>
-      <p className="play__subtitle">Practice time with your guide!</p>
-      <div className="play__frame">
-        <div className="play__host">
-          <Character id={mod.host} size="md" />
-        </div>
-        {mod.id === 'share' && <SortGame onComplete={onComplete} />}
-        {mod.id === 'passwords' && <PasswordGame onComplete={onComplete} />}
-        {mod.id === 'fakes' && <SpotFakeGame onComplete={onComplete} />}
-        {mod.id === 'kindness' && <KindnessGame onComplete={onComplete} />}
-        {mod.id === 'help' && <HelpGame onComplete={onComplete} />}
+      <h1 className="play__title">{mod.gameName}</h1>
+      <p className="play__subtitle">{mod.gameBlurb}</p>
+      <div className="play__frame play__frame--arcade">
+        {mod.id === 'share' && <TreasureCrossingGame onComplete={onComplete} />}
+        {mod.id === 'passwords' && <KeyBlasterGame onComplete={onComplete} />}
+        {mod.id === 'fakes' && <TrickInvadersGame onComplete={onComplete} />}
+        {mod.id === 'kindness' && <KindnessInvadersGame onComplete={onComplete} />}
+        {mod.id === 'help' && <BeaconRunGame onComplete={onComplete} />}
       </div>
 
       <CelebrateOverlay

@@ -26,7 +26,7 @@ const ink = {
 
 type Props = {
   id: CharacterId
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   animated?: boolean
   className?: string
 }

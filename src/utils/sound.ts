@@ -62,4 +62,17 @@ export const sfx = {
     if (!enabled) return
     tone(180, 0.2, 'sawtooth', 0.03)
   },
+  hop(enabled: boolean) {
+    if (!enabled) return
+    tone(420, 0.05, 'square', 0.04)
+  },
+  pew(enabled: boolean) {
+    if (!enabled) return
+    tone(880, 0.05, 'square', 0.035)
+  },
+  catch(enabled: boolean) {
+    if (!enabled) return
+    tone(640, 0.08, 'sine', 0.05)
+    setTimeout(() => tone(820, 0.1, 'sine', 0.05), 60)
+  },
 }
