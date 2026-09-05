@@ -1,0 +1,16 @@
+.stars {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.stars__dot {
+  font-size: 1.35rem;
+  color: rgba(255, 249, 240, 0.35);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.stars__dot--on {
+  color: var(--amber);
+  transform: scale(1.1);
+  text-shadow: 0 2px 8px rgba(233, 196, 106, 0.5);
+}

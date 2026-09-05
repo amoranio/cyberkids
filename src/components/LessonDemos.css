@@ -1,0 +1,106 @@
+.demo {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 249, 240, 0.75);
+  border-radius: var(--radius-md);
+  border: 2px dashed rgba(42, 157, 143, 0.45);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.demo__prompt {
+  font-weight: 800;
+  color: var(--teal-deep);
+  margin: 0;
+}
+
+.demo__item {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--coral);
+  margin: 0;
+}
+
+.demo__row,
+.demo__tiles,
+.demo__lights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.demo__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.demo__phrase {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-align: center;
+  word-break: break-word;
+  min-height: 1.5em;
+  margin: 0;
+}
+
+.demo__meter {
+  text-align: center;
+  font-weight: 800;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.demo__meter--weak {
+  background: rgba(231, 111, 81, 0.25);
+}
+
+.demo__meter--okay {
+  background: rgba(233, 196, 106, 0.45);
+}
+
+.demo__meter--strong {
+  background: rgba(42, 157, 143, 0.35);
+}
+
+.demo__nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.demo__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(13, 115, 119, 0.25);
+  padding: 0;
+}
+
+.demo__dot--on {
+  outline: 2px solid var(--teal-deep);
+}
+
+.demo__dot--done {
+  background: var(--teal);
+}
+
+.demo__feedback {
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.light--green {
+  border-color: #2a9d8f !important;
+}
+
+.light--yellow {
+  border-color: #e9c46a !important;
+}
+
+.light--red {
+  border-color: #e76f51 !important;
+}

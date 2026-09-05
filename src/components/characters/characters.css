@@ -1,0 +1,45 @@
+.character {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+
+.character__svg {
+  width: 100%;
+  height: 100%;
+}
+
+.character--sm {
+  width: 64px;
+  height: 64px;
+}
+
+.character--md {
+  width: 112px;
+  height: 112px;
+}
+
+.character--lg {
+  width: clamp(140px, 28vw, 200px);
+  height: clamp(140px, 28vw, 200px);
+}
+
+.character--bob {
+  animation: bob 2.8s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character--bob {
+    animation: none;
+  }
+}
