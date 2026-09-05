@@ -313,7 +313,7 @@ function step(world: World, dt: number, soundOn: boolean) {
       (m) =>
         m.kind === 'hazard' &&
         m.row === world.row &&
-        overlaps(pb, { x: m.x, y: m.row, w: m.w, h: 1 }, 0.16),
+        overlaps(pb, { x: m.x, y: m.row, w: m.w, h: 1 }, 0.22),
     )
     if (hit) {
       die(world, world.hitLine(hit.label), soundOn)

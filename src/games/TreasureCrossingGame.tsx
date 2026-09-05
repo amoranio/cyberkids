@@ -5,7 +5,7 @@ const ROWS: CrossingRow[] = [
     kind: 'goal',
     fill: '#ffd400',
     caption: 'VAULT',
-    slots: 3,
+    slots: 2,
     slotLabel: 'VAULT',
   },
   {
@@ -13,9 +13,9 @@ const ROWS: CrossingRow[] = [
     fill: '#7ad9c9',
     caption: 'RIDE',
     dir: 1,
-    speed: 1.35,
+    speed: 1.05,
     width: 2.2,
-    gap: 2.5,
+    gap: 2.9,
     labels: ['I LIKE CATS', 'PIZZA TIME', 'GO SOCCER'],
     chipFill: '#00B39A',
   },
@@ -23,9 +23,9 @@ const ROWS: CrossingRow[] = [
     kind: 'float',
     fill: '#7ad9c9',
     dir: -1,
-    speed: 1.65,
+    speed: 1.2,
     width: 2.3,
-    gap: 2.3,
+    gap: 2.7,
     labels: ['I DRAW', 'BLUE IS COOL', 'ROBOTS!'],
     chipFill: '#00B39A',
   },
@@ -35,9 +35,9 @@ const ROWS: CrossingRow[] = [
     fill: '#fffcf6',
     caption: 'DODGE',
     dir: 1,
-    speed: 1.5,
-    width: 1.9,
-    gap: 2.7,
+    speed: 1.1,
+    width: 1.8,
+    gap: 3.3,
     labels: ['ADDRESS', 'PASSWORD', 'PHONE'],
     chipFill: '#FF4D3A',
   },
@@ -45,9 +45,9 @@ const ROWS: CrossingRow[] = [
     kind: 'hazard',
     fill: '#fffcf6',
     dir: -1,
-    speed: 1.9,
-    width: 1.85,
-    gap: 2.55,
+    speed: 1.25,
+    width: 1.75,
+    gap: 3.2,
     labels: ['SCHOOL', 'BIRTHDAY'],
     chipFill: '#FF4D3A',
   },
@@ -55,9 +55,9 @@ const ROWS: CrossingRow[] = [
     kind: 'hazard',
     fill: '#fffcf6',
     dir: 1,
-    speed: 1.35,
-    width: 2.0,
-    gap: 2.9,
+    speed: 0.95,
+    width: 1.85,
+    gap: 3.5,
     labels: ['STREET #', 'LAST NAME'],
     chipFill: '#FF4D3A',
   },
@@ -81,7 +81,7 @@ export function TreasureCrossingGame({ onComplete }: Props) {
             Red trucks (ADDRESS, PASSWORD, SCHOOL) hurt — hop around them.
           </li>
           <li>Green logs (I LIKE CATS, PIZZA TIME) are safe to ride.</li>
-          <li>Fill all 3 vault pads to win.</li>
+          <li>Fill both vault pads to win.</li>
         </ul>
       }
     />

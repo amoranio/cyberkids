@@ -35,7 +35,7 @@ export function KeyBlasterGame({ onComplete }: Props) {
       character="keyora"
       fireLabel="ZAP"
       waves={WAVES}
-      speed={10}
+      speed={8}
       onComplete={onComplete}
       howTo={
         <ul>
