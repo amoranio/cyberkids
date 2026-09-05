@@ -29,7 +29,7 @@ export const modules: ModuleContent[] = [
     badgeName: 'Privacy Shell',
     badgeEmoji: '🐚',
     mapLabel: 'Cove',
-    color: '#2A9D8F',
+    color: '#00B39A',
     lesson: [
       {
         id: 's1',
@@ -109,7 +109,7 @@ export const modules: ModuleContent[] = [
     badgeName: 'Key Spark',
     badgeEmoji: '🔑',
     mapLabel: 'Tower',
-    color: '#E9C46A',
+    color: '#FFD400',
     unlockAfter: 'share',
     lesson: [
       {
@@ -189,7 +189,7 @@ export const modules: ModuleContent[] = [
     badgeName: 'Sharp Eyes',
     badgeEmoji: '🔎',
     mapLabel: 'River',
-    color: '#E76F51',
+    color: '#FF4D3A',
     unlockAfter: 'passwords',
     lesson: [
       {
@@ -269,7 +269,7 @@ export const modules: ModuleContent[] = [
     badgeName: 'Kind Glow',
     badgeEmoji: '✨',
     mapLabel: 'Meadow',
-    color: '#F4A261',
+    color: '#FF5A8A',
     unlockAfter: 'fakes',
     lesson: [
       {
@@ -348,7 +348,7 @@ export const modules: ModuleContent[] = [
     badgeName: 'Brave Compass',
     badgeEmoji: '🧭',
     mapLabel: 'Lookout',
-    color: '#264653',
+    color: '#2F6FED',
     unlockAfter: 'kindness',
     lesson: [
       {

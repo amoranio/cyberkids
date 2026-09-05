@@ -5,7 +5,7 @@
 
 .game__status {
   font-weight: 800;
-  color: var(--teal-deep);
+  color: var(--ink);
   margin: 0;
 }
 
@@ -24,8 +24,8 @@
   min-height: var(--tap-min);
   padding: 0.75rem 1rem;
   border-radius: var(--radius-md);
-  border: 3px solid rgba(42, 157, 143, 0.35);
-  background: rgba(255, 249, 240, 0.95);
+  border: var(--line-w) solid var(--line);
+  background: var(--white);
   font-weight: 800;
   color: var(--ink);
 }
@@ -43,8 +43,7 @@
 }
 
 .game__bin--active {
-  border-color: var(--amber);
-  box-shadow: 0 0 0 3px rgba(233, 196, 106, 0.45);
+  background: var(--yellow);
 }
 
 .game__msg {
@@ -54,34 +53,35 @@
 }
 
 .game__msg--ok {
-  color: #1b6b5c;
+  color: var(--ok);
 }
 
 .game__msg--bad {
-  color: #a33b24;
+  color: var(--bad);
 }
 
 .game__card {
   padding: 1rem;
   border-radius: var(--radius-md);
-  background: rgba(255, 249, 240, 0.95);
-  border: 3px solid rgba(42, 157, 143, 0.3);
+  background: var(--paper);
+  border: var(--line-w) solid var(--line);
   font-weight: 700;
 }
 
 .game__fake {
-  border-color: var(--coral);
+  background: #ffe4de;
 }
 
 .game__meter {
   height: 14px;
   border-radius: 999px;
-  background: rgba(13, 115, 119, 0.15);
+  background: var(--paper-deep);
   overflow: hidden;
+  border: 2px solid var(--line);
 }
 
 .game__meter-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--coral), var(--amber), var(--teal));
+  background: var(--teal);
   transition: width 0.2s ease;
 }
