@@ -1,8 +1,8 @@
 .bubble {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
+  align-items: center;
 }
 
 @media (max-width: 520px) {
@@ -10,11 +10,12 @@
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
+    gap: 0.55rem;
   }
 
   .bubble .character--lg {
-    width: 120px;
-    height: 120px;
+    width: clamp(96px, 30vw, 120px);
+    height: clamp(96px, 30vw, 120px);
   }
 
   .bubble__panel {
@@ -29,9 +30,10 @@
 .bubble__panel {
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 1.15rem 1.3rem;
+  padding: clamp(0.9rem, 2.5vw, 1.3rem);
   border: var(--line-w) solid var(--line);
   box-shadow: 0 4px 0 var(--line);
+  width: 100%;
 }
 
 .bubble__who {

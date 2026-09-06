@@ -7,11 +7,12 @@
 
 .topbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.85rem var(--space);
+  min-height: 60px;
+  padding: 0.55rem var(--space);
   position: sticky;
   top: 0;
   z-index: 40;
@@ -25,6 +26,7 @@
   gap: 0.55rem;
   text-decoration: none;
   color: var(--ink);
+  flex: 0 0 auto;
 }
 
 .topbar__mark {
@@ -46,9 +48,10 @@
 
 .topbar__tools {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 .topbar__nick {
@@ -89,6 +92,10 @@
   box-shadow: none;
 }
 
+.topbar__label-short {
+  display: none;
+}
+
 .shell__main {
   flex: 1;
   width: min(100%, var(--max-w));
@@ -102,4 +109,104 @@
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    gap: 0.45rem;
+    min-height: 56px;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .topbar__brand {
+    gap: 0.4rem;
+  }
+
+  .topbar__mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+  }
+
+  .topbar__name {
+    font-size: 1.18rem;
+  }
+
+  .topbar__tools {
+    gap: 0.35rem;
+  }
+
+  .topbar__nick,
+  .topbar .stars {
+    display: none;
+  }
+
+  .topbar__sound,
+  .topbar__link {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .topbar__link {
+    justify-content: center;
+    padding: 0.3rem 0.65rem;
+    border-radius: 11px;
+  }
+
+  .topbar__label-full {
+    display: none;
+  }
+
+  .topbar__label-short {
+    display: inline;
+  }
+
+  .shell__foot {
+    padding-block: 0.7rem 1rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar {
+    padding-inline: 0.55rem;
+  }
+
+  .topbar__name {
+    font-size: 1.05rem;
+  }
+
+  .topbar__link {
+    padding-inline: 0.5rem;
+  }
+
+  .topbar__link--soft {
+    font-size: 0.78rem;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .topbar {
+    position: static;
+    min-height: 50px;
+    padding-block: 0.2rem;
+  }
+
+  .topbar__mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .topbar__sound,
+  .topbar__link {
+    min-height: 44px;
+  }
+
+  .shell__main {
+    padding-block: 0.4rem;
+  }
+
+  .shell__foot {
+    display: none;
+  }
 }

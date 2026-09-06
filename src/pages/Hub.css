@@ -1,20 +1,21 @@
 .hub {
   display: grid;
-  gap: 2rem;
+  gap: clamp(1.4rem, 4vw, 2.5rem);
 }
 
 .hub__hero {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 1.5rem;
+  gap: clamp(1rem, 4vw, 2.5rem);
   align-items: center;
-  padding: 0.5rem 0 0.25rem;
+  padding: clamp(0.25rem, 1.5vw, 0.75rem) 0;
 }
 
 @media (max-width: 800px) {
   .hub__hero {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 0.65rem;
   }
 
   .hub__mascot {
@@ -46,7 +47,7 @@
 }
 
 .hub__brand {
-  font-size: clamp(3rem, 9vw, 5.2rem);
+  font-size: clamp(2.65rem, 8vw, 5rem);
   color: var(--ink);
   margin: 0 0 0.55rem;
 }
@@ -87,19 +88,25 @@
 
 .hub__terrain {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: 1fr;
+  gap: clamp(0.7rem, 1.5vw, 1rem);
 }
 
-@media (max-width: 900px) {
+@media (min-width: 560px) {
   .hub__terrain {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 520px) {
+@media (min-width: 900px) {
   .hub__terrain {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1240px) {
+  .hub__terrain {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
@@ -108,6 +115,7 @@
 }
 
 .hub__zone-btn {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: 0.35rem;
@@ -116,8 +124,8 @@
   background: var(--white);
   border: var(--line-w) solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 1rem 0.7rem 1.05rem;
-  min-height: 188px;
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+  min-height: 184px;
   box-shadow: 0 5px 0 var(--line);
   transition: transform 0.12s ease;
   height: 100%;
@@ -183,4 +191,55 @@
 .hub__parents a {
   color: var(--ink);
   font-weight: 800;
+}
+
+@media (max-width: 559px) {
+  .hub__eyebrow {
+    margin-bottom: 0.4rem;
+  }
+
+  .hub__brand {
+    margin-bottom: 0.35rem;
+  }
+
+  .hub__tagline {
+    margin-bottom: 0.9rem;
+  }
+
+  .hub__mascot .character--lg {
+    width: clamp(140px, 43vw, 170px);
+    height: clamp(140px, 43vw, 170px);
+  }
+
+  .hub__zone-btn {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: repeat(3, auto);
+    column-gap: 0.85rem;
+    justify-items: start;
+    align-items: center;
+    min-height: 128px;
+    text-align: left;
+  }
+
+  .hub__zone-btn .character {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    width: 78px;
+    height: 78px;
+  }
+
+  .hub__zone-label,
+  .hub__zone-title,
+  .hub__zone-progress {
+    grid-column: 2;
+  }
+
+  .hub__zone-title {
+    text-align: left;
+  }
+
+  .hub__lock {
+    position: absolute;
+    margin: 0 0 58px 58px;
+  }
 }

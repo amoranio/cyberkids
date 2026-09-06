@@ -70,15 +70,19 @@ export function Layout() {
             to="/badges"
             className="topbar__link"
             onClick={() => sfx.click(soundOn)}
+            aria-label="Badge wall"
           >
-            Badges
+            <span className="topbar__label-full">Badges</span>
+            <span className="topbar__label-short" aria-hidden="true">★</span>
           </Link>
           <Link
             to="/parents"
             className="topbar__link topbar__link--soft"
             onClick={() => sfx.click(soundOn)}
+            aria-label="Grown-ups guide"
           >
-            Grown-ups
+            <span className="topbar__label-full">Grown-ups</span>
+            <span className="topbar__label-short" aria-hidden="true">Adults</span>
           </Link>
         </div>
       </header>

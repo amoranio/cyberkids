@@ -28,8 +28,8 @@
   --shadow-pop: 0 6px 0 #141414;
 
   --tap-min: 48px;
-  --space: clamp(1rem, 3vw, 2rem);
-  --max-w: 1080px;
+  --space: clamp(0.75rem, 2.5vw, 2rem);
+  --max-w: 1200px;
 
   /* legacy aliases used by a few components */
   --teal-deep: var(--ink);
@@ -60,7 +60,7 @@ body {
   margin: 0;
   min-height: 100dvh;
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
   line-height: 1.5;
   color: var(--ink);
   background: var(--paper);
@@ -94,6 +94,11 @@ button {
   cursor: pointer;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 img,
 svg {
   display: block;
@@ -124,5 +129,13 @@ svg {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --line-w: 2px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
   }
 }

@@ -60,10 +60,10 @@ function spawnWave(world: World, spec: WaveSpec) {
   world.originX = 6
   world.originY = 6
   world.dir = 1
-  const gapX = 16
-  const gapY = 14
-  const w = 14
-  const h = 10
+  const gapX = 18
+  const gapY = 16
+  const w = 16
+  const h = 12
   const strongEvery = spec.strongEvery ?? 3
   let wi = 0
   let si = 0
