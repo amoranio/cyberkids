@@ -1,11 +1,12 @@
 import { Link, Outlet } from 'react-router-dom'
+import { BadgeUnlockOverlay } from './BadgeUnlockOverlay'
 import { useProgress } from '../context/ProgressContext'
 import { ProgressStars } from './ProgressStars'
 import { sfx } from '../utils/sound'
 import './Layout.css'
 
 export function Layout() {
-  const { badges, soundOn, setSoundOn, nickname } = useProgress()
+  const { badges, points, soundOn, setSoundOn, nickname } = useProgress()
 
   return (
     <div className="shell">
@@ -30,6 +31,9 @@ export function Layout() {
               {nickname}
             </span>
           )}
+          <span className="topbar__points" aria-label={`${points} star points`}>
+            ★ {points}
+          </span>
           <ProgressStars filled={badges.length} />
           <button
             type="button"
@@ -92,6 +96,7 @@ export function Layout() {
       <footer className="shell__foot">
         <p>No accounts. Progress stays on this device.</p>
       </footer>
+      <BadgeUnlockOverlay />
     </div>
   )
 }

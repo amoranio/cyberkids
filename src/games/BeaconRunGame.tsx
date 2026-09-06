@@ -63,7 +63,7 @@ function hitLine(label: string) {
   return `“${label}” is a trap — tell a grown-up instead!`
 }
 
-type Props = { onComplete: () => void }
+type Props = { onComplete: (score?: number) => void }
 
 export function BeaconRunGame({ onComplete }: Props) {
   return (

@@ -87,7 +87,7 @@ type Props = {
   collectNeeded?: number
   hitLine?: (label: string) => string
   splashLine?: string
-  onComplete: () => void
+  onComplete: (score?: number) => void
 }
 
 function fillLane(
@@ -398,7 +398,7 @@ export function CrossingArcade({
     setView(next)
     if (next.won && !done.current) {
       done.current = true
-      completeRef.current()
+      completeRef.current(next.score)
     }
   })
 

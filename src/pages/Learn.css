@@ -156,6 +156,15 @@
   margin-top: 0.35rem;
 }
 
+.badges__points {
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--yellow);
+  border: var(--line-w) solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+}
+
 .badges__cert {
   margin-top: 0.5rem;
 }

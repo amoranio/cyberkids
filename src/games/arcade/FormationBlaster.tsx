@@ -256,7 +256,7 @@ type Props = {
   fireLabel?: string
   waves: WaveSpec[]
   speed?: number
-  onComplete: () => void
+  onComplete: (score?: number) => void
 }
 
 export function FormationBlaster({
@@ -315,7 +315,7 @@ export function FormationBlaster({
     setView(next)
     if (next.won && !done.current) {
       done.current = true
-      completeRef.current()
+      completeRef.current(next.score)
     }
   })
 

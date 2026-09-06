@@ -1,9 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { CelebrateOverlay } from '../components/CelebrateOverlay'
 import { ChoiceButton } from '../components/ChoiceButton'
 import { useProgress } from '../context/ProgressContext'
-import { getModule, isModuleUnlocked } from '../content/modules'
+import { getModule } from '../content/modules'
 import type { ModuleId } from '../content/types'
 import { sfx } from '../utils/sound'
 import './Learn.css'
@@ -11,11 +11,12 @@ import './Learn.css'
 export function QuizPage() {
   const { moduleId } = useParams()
   const navigate = useNavigate()
-  const { completedQuizzes, markQuizDone, soundOn } = useProgress()
+  const { markQuizDone, soundOn, setHoldCelebrations } = useProgress()
   const [index, setIndex] = useState(0)
   const [picked, setPicked] = useState<number | null>(null)
   const [score, setScore] = useState(0)
   const [done, setDone] = useState(false)
+  const [awarded, setAwarded] = useState(0)
 
   const mod = useMemo(() => {
     try {
@@ -25,10 +26,12 @@ export function QuizPage() {
     }
   }, [moduleId])
 
+  useEffect(() => {
+    setHoldCelebrations(done)
+    return () => setHoldCelebrations(false)
+  }, [done, setHoldCelebrations])
+
   if (!mod) return <Navigate to="/" replace />
-  if (!isModuleUnlocked(mod.id, completedQuizzes)) {
-    return <Navigate to="/" replace />
-  }
 
   const q = mod.quiz[index]
   const isCorrect = picked !== null && picked === q.correctIndex
@@ -43,7 +46,8 @@ export function QuizPage() {
 
   const next = () => {
     if (index >= mod.quiz.length - 1) {
-      markQuizDone(mod.id)
+      const result = markQuizDone(mod.id, score)
+      setAwarded(result.awarded)
       sfx.celebrate(soundOn)
       setDone(true)
       return
@@ -52,6 +56,9 @@ export function QuizPage() {
     setPicked(null)
     sfx.click(soundOn)
   }
+
+  const pointsLine =
+    awarded > 0 ? ` +${awarded} star points!` : ' Nice replay!'
 
   return (
     <div className="quiz">
@@ -102,9 +109,9 @@ export function QuizPage() {
 
       <CelebrateOverlay
         open={done}
-        title={`Badge unlocked: ${mod.badgeName}!`}
-        message={`Score: ${score} / ${mod.quiz.length}. ${mod.badgeEmoji} Awesome work!`}
-        badgeEmoji={mod.badgeEmoji}
+        title="Quiz complete!"
+        message={`Score: ${score} / ${mod.quiz.length}.${pointsLine}`}
+        badgeEmoji="★"
         primaryLabel="Back to map"
         onPrimary={() => navigate('/')}
         secondaryLabel="See badges"

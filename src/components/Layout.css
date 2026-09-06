@@ -54,7 +54,8 @@
   min-width: 0;
 }
 
-.topbar__nick {
+.topbar__nick,
+.topbar__points {
   font-weight: 800;
   font-size: 0.9rem;
   color: var(--ink);
@@ -62,6 +63,11 @@
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
   border: var(--line-w) solid var(--line);
+}
+
+.topbar__points {
+  background: var(--yellow);
+  white-space: nowrap;
 }
 
 .topbar__sound {
@@ -139,6 +145,11 @@
   .topbar__nick,
   .topbar .stars {
     display: none;
+  }
+
+  .topbar__points {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.55rem;
   }
 
   .topbar__sound,

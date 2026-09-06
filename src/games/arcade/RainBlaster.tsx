@@ -236,7 +236,7 @@ type Props = {
   bulletClass?: string
   waves: RainWave[]
   lines: { blast: string; pass: string; catch: string; oops: string }
-  onComplete: () => void
+  onComplete: (score?: number) => void
 }
 
 export function RainBlaster({
@@ -304,7 +304,7 @@ export function RainBlaster({
     setView(next)
     if (next.won && !done.current) {
       done.current = true
-      completeRef.current()
+      completeRef.current(next.score)
     }
   })
 

@@ -24,7 +24,7 @@ const WAVES: WaveSpec[] = [
   },
 ]
 
-type Props = { onComplete: () => void }
+type Props = { onComplete: (score?: number) => void }
 
 export function KeyBlasterGame({ onComplete }: Props) {
   return (

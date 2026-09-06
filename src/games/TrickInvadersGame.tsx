@@ -42,7 +42,7 @@ const WAVES: RainWave[] = [
   },
 ]
 
-type Props = { onComplete: () => void }
+type Props = { onComplete: (score?: number) => void }
 
 export function TrickInvadersGame({ onComplete }: Props) {
   return (

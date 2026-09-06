@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { CelebrateOverlay } from '../components/CelebrateOverlay'
 import { useProgress } from '../context/ProgressContext'
-import { getModule, isModuleUnlocked } from '../content/modules'
+import { getModule } from '../content/modules'
 import type { ModuleId } from '../content/types'
 import { TreasureCrossingGame } from '../games/TreasureCrossingGame'
 import { KeyBlasterGame } from '../games/KeyBlasterGame'
@@ -15,8 +15,9 @@ import './Learn.css'
 export function GamePage() {
   const { moduleId } = useParams()
   const navigate = useNavigate()
-  const { completedQuizzes, markGameDone, soundOn } = useProgress()
+  const { markGameDone, soundOn, setHoldCelebrations } = useProgress()
   const [won, setWon] = useState(false)
+  const [awarded, setAwarded] = useState(0)
 
   const mod = useMemo(() => {
     try {
@@ -26,17 +27,25 @@ export function GamePage() {
     }
   }, [moduleId])
 
-  if (!mod) return <Navigate to="/" replace />
-  if (!isModuleUnlocked(mod.id, completedQuizzes)) {
-    return <Navigate to="/" replace />
-  }
+  useEffect(() => {
+    setHoldCelebrations(won)
+    return () => setHoldCelebrations(false)
+  }, [won, setHoldCelebrations])
 
-  const onComplete = () => {
+  if (!mod) return <Navigate to="/" replace />
+
+  const onComplete = (score?: number) => {
     if (won) return
-    markGameDone(mod.id)
+    const result = markGameDone(mod.id, score)
+    setAwarded(result.awarded)
     sfx.celebrate(soundOn)
     setWon(true)
   }
+
+  const pointsLine =
+    awarded > 0
+      ? `You earned ${awarded} star points. Ready for a quick quiz?`
+      : 'Nice replay! Ready for a quick quiz?'
 
   return (
     <div className="play">
@@ -62,8 +71,8 @@ export function GamePage() {
       <CelebrateOverlay
         open={won}
         title="Great practice!"
-        message="You finished the game. Ready for a quick quiz?"
-        badgeEmoji={mod.badgeEmoji}
+        message={pointsLine}
+        badgeEmoji="★"
         primaryLabel="Take the quiz"
         onPrimary={() => navigate(`/quiz/${mod.id}`)}
         secondaryLabel="Back to map"
