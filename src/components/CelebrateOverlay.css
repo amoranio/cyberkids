@@ -6,6 +6,8 @@
   place-items: center;
   padding: 1.25rem;
   background: rgba(20, 20, 20, 0.45);
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .celebrate__card {
@@ -56,5 +58,37 @@
 @media (prefers-reduced-motion: reduce) {
   .celebrate__emoji {
     animation: none;
+  }
+}
+
+@media (max-height: 560px) {
+  .celebrate {
+    align-items: start;
+    padding: 0.6rem;
+  }
+
+  .celebrate__card {
+    padding: 0.8rem 1rem;
+  }
+
+  .celebrate__emoji {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .celebrate__card h2 {
+    font-size: 1.35rem;
+  }
+
+  .celebrate__card p {
+    margin-bottom: 0.65rem;
+  }
+
+  .celebrate__actions {
+    flex-direction: row;
+  }
+
+  .celebrate__actions > * {
+    flex: 1;
   }
 }
