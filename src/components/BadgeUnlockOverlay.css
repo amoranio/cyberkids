@@ -1,0 +1,127 @@
+.badge-unlock {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(20, 20, 20, 0.58);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.badge-unlock__burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.badge-unlock__spark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--yellow);
+  text-shadow: 0 2px 0 var(--line);
+}
+
+.badge-unlock__card {
+  position: relative;
+  width: min(100%, 520px);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 4vw, 2.1rem) 1.5rem 1.6rem;
+  text-align: center;
+  box-shadow: 0 10px 0 var(--line);
+  border: var(--line-w) solid var(--line);
+}
+
+.badge-unlock__char {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 0.35rem;
+}
+
+.badge-unlock__kicker {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.badge-unlock__emoji {
+  font-size: clamp(4.2rem, 12vw, 6rem);
+  line-height: 1;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.badge-unlock__card h2 {
+  font-size: clamp(2rem, 6vw, 2.7rem);
+  margin: 0 0 0.45rem;
+  color: var(--ink);
+}
+
+.badge-unlock__cheer {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.badge-unlock__need {
+  color: var(--muted);
+  font-weight: 800;
+  margin: 0 0 1.25rem;
+}
+
+.badge-unlock__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-unlock__burst {
+    display: none;
+  }
+}
+
+@media (max-height: 620px) {
+  .badge-unlock {
+    align-items: start;
+    padding: 0.6rem;
+  }
+
+  .badge-unlock__card {
+    padding: 0.85rem 1rem 1rem;
+  }
+
+  .badge-unlock__char .character--md {
+    width: 96px;
+    height: 96px;
+  }
+
+  .badge-unlock__emoji {
+    font-size: 3rem;
+  }
+
+  .badge-unlock__card h2 {
+    font-size: 1.55rem;
+  }
+
+  .badge-unlock__cheer,
+  .badge-unlock__need {
+    margin-bottom: 0.35rem;
+  }
+
+  .badge-unlock__actions {
+    flex-direction: row;
+  }
+
+  .badge-unlock__actions > * {
+    flex: 1;
+  }
+}

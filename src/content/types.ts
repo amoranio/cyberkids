@@ -50,5 +50,4 @@ export type ModuleContent = {
   gameBlurb: string
   lesson: LessonPanel[]
   quiz: QuizQuestion[]
-  unlockAfter?: ModuleId
 }

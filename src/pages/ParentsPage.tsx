@@ -12,7 +12,10 @@ export function ParentsPage() {
       <h1 className="parents__title">Grown-ups Guide</h1>
       <p className="parents__lead">
         CyberKids teaches ages 6–10 the habits of cyber safety through short
-        lessons, games, and quizzes. No accounts. Progress stays on this device.
+        lessons, games, and quizzes. Every zone is open from the start. Kids
+        earn star points the first time they finish a lesson, game, or quiz —
+        badges unlock at 25, 60, 100, 150, and 220 points. No accounts.
+        Progress stays on this device.
       </p>
 
       <div className="parents__card">

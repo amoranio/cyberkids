@@ -1,3 +1,5 @@
+import { isPointBadgeId } from '../content/badges'
+
 const STORAGE_KEY = 'cyberkids-progress-v1'
 
 export type StoredProgress = {
@@ -6,6 +8,7 @@ export type StoredProgress = {
   completedGames: string[]
   completedQuizzes: string[]
   badges: string[]
+  points: number
   soundOn: boolean
 }
 
@@ -15,7 +18,14 @@ const defaults: StoredProgress = {
   completedGames: [],
   completedQuizzes: [],
   badges: [],
+  points: 0,
   soundOn: false,
+}
+
+function sanitizePoints(value: unknown): number {
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0
+    ? Math.floor(value)
+    : 0
 }
 
 export function loadProgress(): StoredProgress {
@@ -29,7 +39,8 @@ export function loadProgress(): StoredProgress {
       completedLessons: parsed.completedLessons ?? [],
       completedGames: parsed.completedGames ?? [],
       completedQuizzes: parsed.completedQuizzes ?? [],
-      badges: parsed.badges ?? [],
+      badges: (parsed.badges ?? []).filter(isPointBadgeId),
+      points: sanitizePoints(parsed.points),
     }
   } catch {
     return { ...defaults }

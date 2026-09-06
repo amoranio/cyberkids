@@ -64,7 +64,7 @@ const ROWS: CrossingRow[] = [
   { kind: 'safe', fill: '#e7e1d4', caption: 'START' },
 ]
 
-type Props = { onComplete: () => void }
+type Props = { onComplete: (score?: number) => void }
 
 export function TreasureCrossingGame({ onComplete }: Props) {
   return (

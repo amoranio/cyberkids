@@ -134,7 +134,6 @@ export const modules: ModuleContent[] = [
     badgeEmoji: '🔑',
     mapLabel: 'Tower',
     color: '#FFD400',
-    unlockAfter: 'share',
     gameName: 'Key Blaster',
     gameBlurb: 'Blast weak keys like 1234. Do not shoot long silly keys!',
     lesson: [
@@ -234,7 +233,6 @@ export const modules: ModuleContent[] = [
     badgeEmoji: '🔎',
     mapLabel: 'River',
     color: '#FF4D3A',
-    unlockAfter: 'passwords',
     gameName: 'Trick Invaders',
     gameBlurb: 'Zap fake prize pop-ups. Let real family and class notes land.',
     lesson: [
@@ -338,7 +336,6 @@ export const modules: ModuleContent[] = [
     badgeEmoji: '✨',
     mapLabel: 'Meadow',
     color: '#FF5A8A',
-    unlockAfter: 'fakes',
     gameName: 'Kindness Invaders',
     gameBlurb: 'Blast mean meteors with KIND stars. Catch help-a-friend tokens.',
     lesson: [
@@ -435,7 +432,6 @@ export const modules: ModuleContent[] = [
     badgeEmoji: '🧭',
     mapLabel: 'Lookout',
     color: '#2F6FED',
-    unlockAfter: 'kindness',
     gameName: 'Beacon Run',
     gameBlurb: 'Grab tell-a-grown-up lanterns. Dodge “keep it secret” trucks. Reach the lighthouse.',
     lesson: [
@@ -540,13 +536,4 @@ export function getModule(id: ModuleId): ModuleContent {
   const mod = modules.find((m) => m.id === id)
   if (!mod) throw new Error(`Unknown module: ${id}`)
   return mod
-}
-
-export function isModuleUnlocked(
-  id: ModuleId,
-  completedQuizzes: ModuleId[],
-): boolean {
-  const mod = getModule(id)
-  if (!mod.unlockAfter) return true
-  return completedQuizzes.includes(mod.unlockAfter)
 }

@@ -10,7 +10,7 @@ import {
   DemoTraffic,
 } from '../components/LessonDemos'
 import { useProgress } from '../context/ProgressContext'
-import { getModule, isModuleUnlocked } from '../content/modules'
+import { getModule } from '../content/modules'
 import type { ModuleId } from '../content/types'
 import { sfx } from '../utils/sound'
 import './Learn.css'
@@ -26,7 +26,7 @@ const demos = {
 export function LessonPage() {
   const { moduleId } = useParams()
   const navigate = useNavigate()
-  const { completedQuizzes, markLessonDone, soundOn } = useProgress()
+  const { markLessonDone, soundOn } = useProgress()
   const [step, setStep] = useState(0)
 
   const mod = useMemo(() => {
@@ -38,9 +38,6 @@ export function LessonPage() {
   }, [moduleId])
 
   if (!mod) return <Navigate to="/" replace />
-  if (!isModuleUnlocked(mod.id, completedQuizzes)) {
-    return <Navigate to="/" replace />
-  }
 
   const panel = mod.lesson[step]
   const Demo = panel.interactive ? demos[panel.interactive] : null

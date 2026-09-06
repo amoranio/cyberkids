@@ -45,7 +45,7 @@ const WAVES: RainWave[] = [
   },
 ]
 
-type Props = { onComplete: () => void }
+type Props = { onComplete: (score?: number) => void }
 
 export function KindnessInvadersGame({ onComplete }: Props) {
   return (
