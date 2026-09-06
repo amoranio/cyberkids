@@ -449,10 +449,10 @@ export function CrossingArcade({
             key={`g-${idx}`}
             className={`arcade__slot ${view.filled[idx] ? 'arcade__slot--full' : ''}`}
             style={{
-              left: `${col * cellW + 2}%`,
-              top: `${i * cellH + 6}%`,
-              width: `${cellW - 4}%`,
-              height: `${cellH - 12}%`,
+              left: `${col * cellW + 1.5}%`,
+              top: `${i * cellH + 1}%`,
+              width: `${cellW - 3}%`,
+              height: `${cellH - 2}%`,
             }}
           >
             {view.filled[idx] ? 'SAFE' : spec.slotLabel}
@@ -466,10 +466,10 @@ export function CrossingArcade({
             key={t.id}
             className="arcade__token"
             style={{
-              left: `${t.col * cellW + 8}%`,
-              top: `${t.row * cellH + 10}%`,
-              width: `${cellW - 16}%`,
-              height: `${cellH - 20}%`,
+              left: `${t.col * cellW + 1}%`,
+              top: `${t.row * cellH + 1}%`,
+              width: `${cellW - 2}%`,
+              height: `${cellH - 2}%`,
             }}
           >
             {t.label}
@@ -481,9 +481,9 @@ export function CrossingArcade({
           className="arcade__chip"
           style={{
             left: `${m.x * cellW}%`,
-            top: `${m.row * cellH + 8}%`,
+            top: `${m.row * cellH + 1}%`,
             width: `${m.w * cellW}%`,
-            height: `${cellH - 16}%`,
+            height: `${cellH - 2}%`,
             background: m.fill,
           }}
         >
@@ -494,9 +494,9 @@ export function CrossingArcade({
         className="arcade__hero"
         style={{
           left: `${view.fx * cellW}%`,
-          top: `${view.row * cellH + 4}%`,
+          top: `${view.row * cellH + 0.6}%`,
           width: `${cellW}%`,
-          height: `${cellH - 8}%`,
+          height: `${cellH - 1.2}%`,
         }}
       >
         <Character id={character} size="xs" animated={false} />

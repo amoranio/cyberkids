@@ -360,6 +360,35 @@
   }
 }
 
+@media (min-width: 1000px) {
+  .arcade__play-area {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    align-items: center;
+  }
+
+  .arcade__controls {
+    width: 218px;
+    gap: 0.55rem;
+  }
+
+  .arcade__pad {
+    --pad-cell: 44px;
+    gap: 2px;
+  }
+
+  .arcade__fire {
+    width: 72px;
+    height: 72px;
+    font-size: 0.82rem;
+  }
+
+  .arcade__touch-tip {
+    max-width: 70px;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+}
+
 @media (orientation: landscape) and (max-height: 500px) {
   .arcade {
     gap: 0.25rem;
